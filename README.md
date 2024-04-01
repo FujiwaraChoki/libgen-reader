@@ -1,38 +1,87 @@
-<p align="center"><img src="https://i.imgur.com/a9QWW0v.png"></p>
+# LibGen Reader
+
+An application that turns books into audiobooks using the website [LibGen](http://libgen.is/) and multiple Text-to-Speech Engines, such as:
+
+- Google Text-to-Speech
+
+- Edge
+
+- ElevenLabs
+
+## Technologies
+
+To build libgen-reader, I used the following technologies:
+
+- [Nextron](https://github.com/saltyshiomix/nextron) - Next.js + Electron
+
+- [Next.js](https://nextjs.org/) - React Framework
+
+- [Electron](https://www.electronjs.org/) - Desktop Application Framework
+
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+
+- [Libgen API Wrapper](https://www.npmjs.com/package/libgen)
+
+## Installation
+
+1. Clone the repository
+
+```bash
+
+git  clone  https://github.com/FujiwaraChoki/libgen-reader.git
+
+```
+
+2. Install the dependencies
+
+```bash
+
+yarn  install
+
+```
+
+3. Create a `.env` file in the root directory of the project
+
+```bash
+
+touch  .env
+
+```
+
+You can also copy the `.env.example` file and rename it to `.env`
+
+```bash
+
+cp  .env.example  .env
+
+```
+
+4. You can now fill in the values.
+
+5) Start the application
+
+```bash
+
+yarn  start
+
+```
 
 ## Usage
 
-### Create an App
+1. Open the application
 
-```
-# with npx
-$ npx create-nextron-app my-app --example with-tailwindcss
+2) Search for a book
 
-# with yarn
-$ yarn create nextron-app my-app --example with-tailwindcss
+3. Select the book
 
-# with pnpm
-$ pnpm dlx create-nextron-app my-app --example with-tailwindcss
-```
+4) Choose the Text-to-Speech Engine
 
-### Install Dependencies
+5. Click on the "Create Audiobook" button
 
-```
-$ cd my-app
+6) Wait for the audiobook to be created
 
-# using yarn or npm
-$ yarn (or `npm install`)
+7. Listen to the audiobook
 
-# using pnpm
-$ pnpm install --shamefully-hoist
-```
+## License
 
-### Use it
-
-```
-# development mode
-$ yarn dev (or `npm run dev` or `pnpm run dev`)
-
-# production build
-$ yarn build (or `npm run build` or `pnpm run build`)
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
