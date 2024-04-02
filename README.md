@@ -52,7 +52,13 @@ cp ./renderer/.env.example ./renderer/.env
 
 4. You can now fill in the values.
 
-5) Start the application
+5. Install Python dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+6. Start the application
 
 ```bash
 yarn start
@@ -62,7 +68,7 @@ yarn start
 
 1. Open the application
 
-2) Search for a book
+2. Search for a book
 
 3. Select the book
 
