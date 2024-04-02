@@ -91,14 +91,13 @@ function Book({
 }) {
   return (
     <div
-      className={`flex flex-col items-center space-y-2 p-4
-      ${
-        selectedBook.id === book.id
+      className={`flex flex-col items-center space-y-2 p-4 rounded-xl hover:p-3 transition-all linear duration-150
+      ${selectedBook.id === book.id
           ? "bg-yellow-200"
           : index % 2 === 0
-          ? "bg-yellow-100"
-          : "bg-yellow-50"
-      }
+            ? "bg-yellow-100"
+            : "bg-yellow-50"
+        }
       `}
     >
       <div className="text-xl text-purple-600">{book.title}</div>
@@ -119,7 +118,7 @@ export default function HomePage() {
   const [selectedBook, setSelectedBook] = useState<object>({});
 
   const generateAudiobook = async () => {
-    const response = await fetch("/api/generate-audiobook", {
+    const response = await fetch("/api/fetch-books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -133,6 +132,8 @@ export default function HomePage() {
       throw new Error("Failed to generate Audiobook");
     }
 
+    console.log(response.data.books);
+
     return response.data.books;
   };
 
@@ -141,9 +142,9 @@ export default function HomePage() {
       try {
         const response: Book[] = await generateAudiobook();
         setResults(response);
-        resolve("Audiobook generated successfully");
+        resolve("Fetched Books successfully.");
       } catch (error) {
-        reject("Failed to generate Audiobook");
+        reject("Failed to fetch books.");
       }
     });
   };
@@ -153,7 +154,7 @@ export default function HomePage() {
       <Head>
         <title>libgen-reader - Turn any Book into an Audiobook</title>
       </Head>
-      <div className="text-center p-20 bg-gradient-to-b from-yellow-200 to-yellow-100 space-y-6 antialiased">
+      <div className="text-center p-20 space-y-6 antialiased">
         <div className="space-y-3">
           <h1 className="text-4xl font-bold text-blue-600">libgen-reader</h1>
           <p className="text-xl text-green-600">
@@ -164,7 +165,7 @@ export default function HomePage() {
           <Input
             label="Book Name"
             value={bookName}
-            onChange={(e) => setBookName(e.target.value)}
+            onChange={(e: any) => setBookName(e.target.value)}
           />
         </div>
         <button
@@ -179,9 +180,9 @@ export default function HomePage() {
             });
           }}
         >
-          Generate Audiobook
+          Find books
         </button>
-        {results && (
+        {results.length > 0 && (
           <div className="mt-8 space-y-4">
             {results.map((book, index) => (
               <Book
