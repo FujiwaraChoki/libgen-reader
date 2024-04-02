@@ -27,32 +27,26 @@ To build libgen-reader, I used the following technologies:
 1. Clone the repository
 
 ```bash
-
-git  clone  https://github.com/FujiwaraChoki/libgen-reader.git
-
+git clone https://github.com/FujiwaraChoki/libgen-reader.git
 ```
 
 2. Install the dependencies
 
 ```bash
-
-yarn  install
-
+yarn install
 ```
 
 3. Create a `.env` file in the root directory of the project
 
 ```bash
-
-touch  .env
-
+touch ./renderer/.env
 ```
 
 You can also copy the `.env.example` file and rename it to `.env`
 
 ```bash
 
-cp  .env.example  .env
+cp ./renderer/.env.example ./renderer/.env
 
 ```
 
@@ -61,9 +55,7 @@ cp  .env.example  .env
 5) Start the application
 
 ```bash
-
-yarn  start
-
+yarn start
 ```
 
 ## Usage

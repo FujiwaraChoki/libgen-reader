@@ -1,3 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+  padding: 20px 20px 60px;
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 5px;
+  font-size: 1em;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #007bff;
+}
+
+a:visited:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: #0056b3;
+}
+
+a:active:hover {
+  text-decoration: underline;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  background-color: #161718;
+  padding: 2px 4px;
+  border-radius: 5px;
+  color: #f8f9fa;
+}

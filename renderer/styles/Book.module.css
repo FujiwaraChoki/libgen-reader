@@ -1,0 +1,65 @@
+/* Book styles */
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #f8f9fa;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.book img {
+  width: 100px;
+  height: 150px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.book:hover img {
+  transform: scale(1.1);
+}
+
+.book h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+  color: #343a40;
+}
+
+.book:hover h2 {
+  color: #007bff;
+}
+
+.book p {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+.book button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.book button:hover {
+  background-color: #0056b3;
+}
+
+.book button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,18 +1,10 @@
-import {
-  screen,
-  BrowserWindow,
-  BrowserWindowConstructorOptions,
-  Rectangle,
-} from 'electron'
+import { screen, BrowserWindow } from 'electron'
 import Store from 'electron-store'
 
-export const createWindow = (
-  windowName: string,
-  options: BrowserWindowConstructorOptions
-): BrowserWindow => {
+export const createWindow = (windowName, options) => {
   const key = 'window-state'
   const name = `window-state-${windowName}`
-  const store = new Store<Rectangle>({ name })
+  const store = new Store({ name })
   const defaultSize = {
     width: options.width,
     height: options.height,

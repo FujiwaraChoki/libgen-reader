@@ -3,6 +3,11 @@ node_modules
 .next
 app
 dist
+venv/
+.idea
+*.json
+*.log
+*.mp3
 .vscode
-.env
 .history
+.env

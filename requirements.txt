@@ -1,0 +1,9 @@
+gTTs
+tika
+moviepy
+selenium
+edge-tts
+requests
+termcolor
+libgen-api
+webdriver_manager
