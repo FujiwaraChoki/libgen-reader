@@ -41,8 +41,13 @@ except ImportError:
     from selenium.webdriver.chrome.service import Service
     from selenium.webdriver.chrome.webdriver import WebDriver
 
-LOG_FILE = "logs/" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".log"
+if not os.path.exists("audio"):
+    os.makedirs("audio")
 
+if not os.path.exists("logs"):
+    os.makedirs("logs")
+
+LOG_FILE = "logs/" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".log"
 
 load_dotenv("./renderer/.env")
 

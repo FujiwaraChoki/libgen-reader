@@ -170,7 +170,7 @@ export default function HomePage() {
         >
           📜 Show Logs
         </span>
-        <h1>Library-Genesis Reader</h1>
+        <h1>Library-Genesis Reader 📖</h1>
         <div>
           This tool turns any book into an audiobook using various TTS engines,
           such as:
@@ -193,7 +193,7 @@ export default function HomePage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={handleClick}>Send</button>
+        <button onClick={handleClick}>Search</button>
       </div>
       {audiobookPath && (
         <div>
