@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cd "$(dirname "$0")" || exit 1 # cd to the script directory or exit if failed
+# cd to the script directory or exit if failed
+cd "$(dirname "$0")" || exit 1 
 
-# run the app and pass the second argument to the app
+# run the app and pass all arguments to the python script
 echo $(python main.py $@)
