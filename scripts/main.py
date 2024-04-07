@@ -12,7 +12,10 @@ os.system(".\\venv\\Scripts\\activate")
 from uuid import uuid4
 from typing import List
 from datetime import datetime
+from dotenv import load_dotenv
 from libgen_api import LibgenSearch
+from elevenlabs import save
+from elevenlabs.client import ElevenLabs
 
 try:
     import edge_tts
@@ -39,7 +42,12 @@ except ImportError:
     from selenium.webdriver.chrome.webdriver import WebDriver
 
 LOG_FILE = "logs/" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".log"
-VOICE = "en-GB-SoniaNeural"
+
+
+load_dotenv("./renderer/.env")
+
+VOICE = os.getenv("EDGE_TTS_VOICE")
+ELEVENLABS_VOICE = os.getenv("ELEVENLABS_VOICE")
 
 class Logger:
     def __init__(self, log_file: str):
@@ -107,7 +115,20 @@ def _do_tts(text: str, engine: str = "edge") -> str:
 
     elif engine == "elevenlabs":
         l.log("Using Eleven Labs for TTS")
-        l.log("[ERR] Eleven Labs TTS is not yet implemented")
+        client = ElevenLabs(
+            api_key=os.getenv("ELEVENLABS_API_KEY"),
+        )
+
+        audio_file = _generate_random_filename("audio")
+        audio = client.generate(
+            text=text,
+            voice=ELEVENLABS_VOICE,
+            model="eleven_multilingual_v2"
+        )
+
+        save(audio, audio_file)
+
+        return audio_file
 
 def _get_downloads_folder() -> str:
     """

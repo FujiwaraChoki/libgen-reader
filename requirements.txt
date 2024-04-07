@@ -6,4 +6,5 @@ edge-tts
 requests
 termcolor
 libgen-api
+elevenlabs
 webdriver_manager
