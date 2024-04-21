@@ -32,11 +32,11 @@ async function startProcess(event, value) {
       }
       event.sender.send("log", "Ran script sucessfully.");
       const action = value.split(" ")[0];
-      if (action === "fetch_books") {
-        event.sender.send("book", stdout);
-      } else if (action === "read_book") {
-        event.sender.send("book_done", stdout);
-      } else {
+    if (action === "fetch_books") {
+      event.sender.send("book", stdout);
+    } else if (action === "read_book") {
+      event.sender.send("book_done", stdout);
+    } else {
         console.log("DEBUG: log:", stdout); // will be seen only dev mode, not in prod mode
       }
     });

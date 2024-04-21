@@ -256,7 +256,8 @@ if __name__ == "__main__":
 
     if action == "fetch_books":
         # All args after the action are the query
-        books = fetch_books(" ".join(sys.argv[2:]))
+        title = " ".join(sys.argv[2:])
+        books = fetch_books(title)
         print(books)
 
     elif action == "read_book":
