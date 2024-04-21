@@ -3,6 +3,7 @@ import sys
 import json
 import asyncio
 import requests
+import threading
 import subprocess
 import urllib.parse
 
@@ -194,9 +195,23 @@ def read_book(path: str, engine: str = "edge") -> str:
 
     audio_files = []
 
-    for chunk in chunks:
+    parts = len(chunks)
+
+    # Use threading to speed up the process
+    def _do_tts_thread(chunk: str, i: int):
         audio_file = _do_tts(chunk, engine)
         audio_files.append(audio_file)
+        l.log(f"Generated audio part {i + 1}/{parts}")
+
+    threads = []
+
+    for i, chunk in enumerate(chunks):
+        t = threading.Thread(target=_do_tts_thread, args=(chunk, i))
+        t.start()
+        threads.append(t)
+
+    for t in threads:
+        t.join()
 
     audio_clips = [AudioFileClip(audio_file) for audio_file in audio_files]
     final_audio = concatenate_audioclips(audio_clips)
