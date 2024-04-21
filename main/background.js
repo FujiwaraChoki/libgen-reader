@@ -47,7 +47,6 @@ async function startProcess(event, value) {
 
 ipcMain.on("run-sh", async (event, value) => {
   const action = value.split(" ")[0];
-  console.log("DEBUG: starting process"); // for dev mode
   event.sender.send("log", `Running "${action}"...`); // for prod mode
   await startProcess(event, value);
 });
