@@ -1,6 +1,6 @@
-appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2018 Yoshihide Shiono
+appId: codes.fuji.libgen-reader
+productName: LibGen Reader
+copyright: Copyright © 2024 FujiwaraChoki
 directories:
   output: dist
   buildResources: resources
