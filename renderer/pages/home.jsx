@@ -138,9 +138,11 @@ export default function HomePage() {
 
   useEffect(() => {
     for (let key in ipcs) {
+      // Create event listener for each IPC channel
       window.ipc.on(key, ipcs[key]);
     }
 
+    // Cleanup
     return () => {
       if (!window.ipc.removeListener) return;
 
