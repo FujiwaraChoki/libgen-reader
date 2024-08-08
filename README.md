@@ -61,7 +61,7 @@ pip install -r requirements.txt
 6. Start the application
 
 ```bash
-yarn start
+yarn dev
 ```
 
 ## Usage
